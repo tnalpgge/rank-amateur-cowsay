@@ -1,4 +1,4 @@
-3.03	19 May 1999
+3.03	27 May 1999
 	- Added cows/tux.cow, as suggested by xmanoel@i.am
 	- Compatibility with 5.6.0, due to a change in qw().
 
