@@ -1,44 +1,57 @@
-.so /usr/local/etc/nmh/tmac.h
-.TH COWSAY 1 "Barnyard Animal Management"
+.\" 
+.\" cowsay.1
+.\"
+.\" $Id$
+.\"
+.\" This file is part of cowsay.  (c) 1999 Tony Monroe.
+.\"
+.ds Nm Cowsay
+.ds nm cowsay
+.TH \*(nm 1 "$Date$"
 .SH NAME
-cowsay, cowthink \- configurable speaking/thinking cow
+\*(nm/cowthink \- configurable speaking/thinking cow (and a bit more)
 .SH SYNOPSIS
 cowsay
-\%[\-e eye_string]
-\%[\-f cowfile]
-\%[\-h]
-\%[\-l]
-\%[\-n]
-\%[\-T tongue_string] 
-\%[\-W column]
-\%[\-bdgpstwy]
+.RB [ \-e 
+.IR eye_string ]
+.RB [ \-f 
+.IR cowfile ]
+.RB [ \-h ]
+.RB [ \-l ]
+.RB [ \-n ]
+.RB [ \-T 
+.IR tongue_string ] 
+.RB [ \-W 
+.IR column ]
+.RB [ \-bdgpstwy ]
 .SH DESCRIPTION
 .I Cowsay
 generates an ASCII picture of a cow saying something provided by the
 user.  If run with no arguments, it accepts standard input, word-wraps
 the message given at about 40 columns, and prints the cow saying the
 given message on standard output.
-
-To aid in the use of arbitrary messages with arbitrary whitespace, use the
-.B -n
-option.  If it is specified, the given message will not
-be word-wrapped.  This is possibly useful if you want to make the cow
-think or speak in figlet(6).  If 
-.B -n
-is specified, there must not be any command-line arguments left after
-all the switches have been processed.  
-
+.PP
+To aid in the use of arbitrary messages with arbitrary whitespace,
+use the
+.B \-n
+option.  If it is specified, the given message will not be
+word-wrapped.  This is possibly useful if you want to make the cow
+think or speak in figlet(6).  If
+.B \-n
+is specified, there must not be any command-line arguments left
+after all the switches have been processed.
+.PP
 The
-.B -W
-specifies roughly (where the message should be wrapped.  The default is
-equivalent to 
-.B -W 40
-i.e. wrap words at or before the 40th column.  
-
+.B \-W
+specifies roughly (where the message should be wrapped.  The default
+is equivalent to
+.B \-W 40
+i.e. wrap words at or before the 40th column.
+.PP
 If any command-line arguments are left over after all switches have
-been processed, they become the cow\'s message.  The program will not
+been processed, they become the cow's message.  The program will not
 accept standard input for a message in this case.
-
+.PP
 There are several provided modes which change the appearance of the
 cow depending on its particular emotional/physical state.  The 
 .B \-b
@@ -54,79 +67,94 @@ makes the cow appear thoroughly stoned;
 .B \-t
 yields a tired cow;
 .B \-w
-is somewhat the opposite of \-t, and initiates wired mode;
+is somewhat the opposite of 
+.BR \-t , 
+and initiates wired mode;
 .B \-y
 brings on the cow's youthful appearance.
-
+.PP
 The user may specify the
-.B -e 
-option to select the appearance of the cow's eyes, in which
-case the first two characters of the argument string 
-.B eye_string
+.B \-e
+option to select the appearance of the cow's eyes, in which case
+the first two characters of the argument string
+.I eye_string
 will be used.  The default eyes are 'oo'.  The tongue is similarly
 configurable through
-.B -T
+.B \-T
 and
-.B tongue_string; 
-it must be two characters and does not appear by
-default.  However, it does appear in the 'dead' and 'stoned' modes.
-Any configuration done by
-.B -e
+.IR tongue_string ;
+it must be two characters and does not appear by default.  However,
+it does appear in the 'dead' and 'stoned' modes.  Any configuration
+done by
+.B \-e
 and
-.B -T
+.B \-T
 will be lost if one of the provided modes is used.
-
+.PP
 The
-.B -f
+.B \-f
 option specifies a particular cow picture file (``cowfile'') to
-use.  If the cowfile spec contains / then it will be interpreted
+use.  If the cowfile spec contains '/' then it will be interpreted
 as a path relative to the current directory.  Otherwise, cowsay
-will search the path specified in the COWPATH environment variable.
-To list all cowfiles on the current $COWPATH, invoke
-.B cowsay
+will search the path specified in the 
+.B COWPATH 
+environment variable.
+To list all cowfiles on the current 
+.BR COWPATH , 
+invoke
+.B \*(nm
 with the
-.B -l
+.B \-l
 switch.
-
+.PP
 If the program is invoked as 
 .B cowthink 
 then the cow will think its message instead of saying it.
-
+.PP
 .SH COWFILE FORMAT
-A cowfile is made up of a simple block of perl(1) code, which
-assigns a picture of a cow to the variable ``$the_cow''.  Should
-you wish to customize the eyes or the tongue of the cow, then the
-variables ``$eyes'' and ``$tongue'' may be used.  The trail leading
-up to the cow\'s message balloon is composed of the character(s)
-in the ``$thoughts'' variable.  Any backslashes must be reduplicated
-to prevent interpolation.  The name of a cowfile should end with
-``.cow'', otherwise it is assumed not to be a cowfile.  Also,
-at-signs (``@'') must be backslashed because that is what Perl 5
-expects.
-
+A cowfile is made up of a simple block of
+.BR perl (1)
+code, which assigns a picture of a cow to the variable
+.BR $the_cow .
+Should you wish to customize the eyes or the tongue of the cow,
+then the variables
+.BR $eyes and $tongue
+may be used.  The trail leading up to the cow's message balloon is
+composed of the character(s) in the
+.B $thoughts
+variable.  Any backslashes must be reduplicated to prevent
+interpolation.  The name of a cowfile should end with
+.BR .cow ,
+otherwise it is assumed not to be a cowfile.  Also, at-signs (``@'')
+must be backslashed because that is what Perl 5 expects.
+.PP
 .SH COMPATIBILITY WITH OLDER VERSIONS
+.PP
+What older versions? :-)
+.PP
 Version 3.0 is fully backward-compatible with 2.x versions.  If
 you're still using a 1.x version, consider upgrading.
-
 .SH ENVIRONMENT
 The COWPATH environment variable, if present, will be used to search
 for cowfiles.  It contains a colon-separated list of directories,
-much like PATH or MANPATH.  It should always contain the
-/usr/local/share/cows directory, or at least a directory with a
-file called ``default.cow'' in it.
-
+much like
+.B PATH or
+.BR MANPATH .
+It should always contain the
+.B /usr/local/share/cows
+directory, or at least a directory with a file called 
+.B default.cow
+in it.
 .SH FILES
-/usr/local/share/cows holds a sample set of cowfiles.  If your
-COWPATH is not explicitly set, it automatically contains this directory.
-
+.B %PREFIX%/share/cows
+holds a sample set of cowfiles.  If your
+.B COWPATH
+is not explicitly set, it automatically contains this directory.
 .SH BUGS
 If there are any left, please notify the author at the address below.
-
 .SH AUTHOR
-Tony Monroe (tmonroe@csua.berkeley.edu), with suggestions from Shannon
-Appel (appel@csua.berkeley.edu) and contributions from Anthony Polito
-(aspolito@csua.berkeley.edu).
-
+Tony Monroe (tony@nog.net), with suggestions from Shannon
+Appel (appel@CSUA.Berkeley.EDU) and contributions from Anthony Polito
+(aspolito@CSUA.Berkeley.EDU).
 .SH SEE ALSO
-perl(1), wall(1), nwrite(1), figlet(6), /csua/bin/rootcow
-
+perl(1), wall(1), nwrite(1), figlet(6)

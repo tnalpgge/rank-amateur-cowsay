@@ -1,0 +1,28 @@
+==========
+cowsay 3.0
+==========
+
+cowsay is a configurable talking cow, written in Perl.  It operates
+much as the figlet program does, and it written in the same spirit
+of silliness.
+
+cowsay is actually a pretty old program.  It has not really been
+released before, and I am releasing it in the hope that someone
+other than myself will be amused by it. 
+
+The first major version of cowsay had one cow and one message
+template: $foo is $verb $bar.  Not very flexible, but people managed
+to do pretty interesting things with it.  The second major version
+scrapped many of the limitations of the first, by allowing arbitrary
+messages, multiple cowfiles, and even support for cows talking in
+figlet.  The third version was a rewrite of the second into Perl
+5, whereupon the code got a lot smaller and more manageable. :-)
+
+To install cowsay, consult the INSTALL file in this directory.
+
+For the terms and conditions of use, consult the LICENSE file in
+this directory.
+
+-- Tony Monroe (tony@nog.net)
+
+$Id$
