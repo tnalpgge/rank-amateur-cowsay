@@ -1,0 +1,15 @@
+Steps to be done for release:
+
+(0) Package into tarballs and sign.
+
+(1) Upload tarballs to FTP server.
+
+(2) Point LATEST.tar.gz to current version.
+
+(3) Modify cowsay web pages to reflect current version.
+
+(4) Modify factoids with purl and miho to reflect current version.
+
+(5) Post to freshmeat.
+
+$Id$
