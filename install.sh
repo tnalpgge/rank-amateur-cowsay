@@ -22,6 +22,8 @@ cowsay Installation
 Searching for useful perl executables...
 DOG
 
+backdoor=$1
+
 pathdirs=`echo $PATH | tr : " "`
 for p in $pathdirs; do
 	set $p/perl $p/perl5*
@@ -53,7 +55,13 @@ echo I will be using $1 because I know it will work.
 
 echo Now I need an installation prefix.  I will use /usr/local unless
 printf "you give me a better idea here: "
-read prefix
+if [ -n "$backdoor" ]; then
+	prefix=$backdoor
+	printf "%s (specified on command line)\n" $prefix
+else
+	read prefix
+fi
+
 PREFIX=${prefix:-/usr/local}
 
 echo Okay, time to install this puppy.
