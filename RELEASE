@@ -8,16 +8,18 @@ Steps to be done for release:
 
 (3) Change version number in cowsay.1.
 
-(4) Package into tarballs and sign.
+(4) CVS tag.
 
-(5) Upload tarballs to FTP server.
+(5) Package into tarballs and sign.
 
-(6) Point LATEST.tar.gz to current version.
+(6) Upload tarballs to FTP server.
 
-(7) Modify cowsay web pages to reflect current version.
+(7) Point LATEST.tar.gz to current version.
 
-(8) Modify factoids with purl and miho to reflect current version.
+(8) Modify cowsay web pages to reflect current version.
 
-(9) Post to freshmeat.
+(9) Modify factoids with purl and miho to reflect current version.
+
+(10) Post to freshmeat.
 
 $Id$
