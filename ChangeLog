@@ -1,6 +1,7 @@
-3.03	27 May 1999
+3.03	28 May 1999
 	- Added cows/tux.cow, as suggested by xmanoel@i.am
 	- Compatibility with 5.6.0, due to a change in qw().
+	- Renamed devil.cow to daemon.cow, since I know better. :-)
 
 3.02	04 November 1999
 	- Fixed boneheaded code placement so that cowsay -l actually works.

@@ -3,6 +3,7 @@ INSTALL
 LICENSE
 MANIFEST
 README
+Wrap.pm.diff
 install.sh
 pgp_public_key.txt
 cowsay
@@ -14,8 +15,8 @@ cows/bud-frogs.cow
 cows/bunny.cow
 cows/cheese.cow
 cows/cower.cow
+cows/daemon.cow
 cows/default.cow
-cows/devil.cow
 cows/dragon-and-cow.cow
 cows/dragon.cow
 cows/elephant-in-snake.cow
@@ -50,6 +51,7 @@ cows/telebears.cow
 cows/three-eyes.cow
 cows/turkey.cow
 cows/turtle.cow
+cows/tux.cow
 cows/udder.cow
 cows/vader-koala.cow
 cows/www.cow
