@@ -2,6 +2,7 @@ INSTALL
 LICENSE
 MANIFEST
 README
+install.sh
 pgp_public_key.txt
 cowsay
 cowsay.1
