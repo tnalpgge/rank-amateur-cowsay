@@ -1,7 +1,7 @@
 #%BANGPERL%
 
 ##
-## Cowsay 3.0
+## Cowsay 3.01
 ##
 ## This file is part of cowsay.  (c) 1999 Tony Monroe.
 ##
@@ -27,6 +27,14 @@ $Text::Wrap::initial_tab = 8;
 $Text::Wrap::subsequent_tab = 8;
 $Text::Wrap::tabstop = 8;
 
+## One of these days, we'll get it ported to Windows.  Yeah, right.
+
+if (($^O eq "MSWin32") or ($^O eq "Windows_NT")) {	## Many perls, eek!
+    $pathsep = ';';
+} else {
+    $pathsep = ':';
+}
+
 %opts = (
     'e'		=>	'oo',
     'f'		=>	'default.cow',
@@ -51,12 +59,6 @@ $young = $opts{'y'};
 $eyes = substr($opts{'e'}, 0, 2);
 $tongue = substr($opts{'T'}, 0, 2);
 $the_cow = "";
-
-if (($^O eq "MSWin32") or ($^O eq "Windows_NT")) {	## Many perls, eek!
-    $pathsep = ';';
-} else {
-    $pathsep = ':';
-}
 
 &slurp_input;
 $Text::Wrap::columns = $opts{'W'};
