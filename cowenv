@@ -1,0 +1,4 @@
+# $Id$
+# Development environment settings for cowsay
+COWPATH=`pwd`/cows
+export COWPATH
