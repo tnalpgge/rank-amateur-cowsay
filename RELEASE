@@ -4,16 +4,20 @@ Steps to be done for release:
 
 (1) Change version number in Makefile.
 
-(2) Package into tarballs and sign.
+(2) Change version number in README.
 
-(3) Upload tarballs to FTP server.
+(3) Change version number in cowsay.1.
 
-(4) Point LATEST.tar.gz to current version.
+(4) Package into tarballs and sign.
 
-(5) Modify cowsay web pages to reflect current version.
+(5) Upload tarballs to FTP server.
 
-(6) Modify factoids with purl and miho to reflect current version.
+(6) Point LATEST.tar.gz to current version.
 
-(7) Post to freshmeat.
+(7) Modify cowsay web pages to reflect current version.
+
+(8) Modify factoids with purl and miho to reflect current version.
+
+(9) Post to freshmeat.
 
 $Id$

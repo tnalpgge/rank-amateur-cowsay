@@ -1,6 +1,6 @@
-==========
-cowsay 3.0
-==========
+===========
+cowsay 3.02
+===========
 
 cowsay is a configurable talking cow, written in Perl.  It operates
 much as the figlet program does, and it written in the same spirit
