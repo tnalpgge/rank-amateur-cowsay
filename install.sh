@@ -62,7 +62,7 @@ echo s,%BANGPERL%,!$usethisperl,\; > install.pl
 echo s,%PREFIX%,$PREFIX,\; >> install.pl
 set -x
 mkdir -p $PREFIX/bin || (mkdir $PREFIX; mkdir $PREFIX/bin)
-$usethisperl -p install.pl nhirc.pl > $PREFIX/bin/cowsay
+$usethisperl -p install.pl cowsay > $PREFIX/bin/cowsay
 chmod a+x $PREFIX/bin/cowsay
 ln -s $PREFIX/bin/cowsay $PREFIX/bin/cowthink
 mkdir -p $PREFIX/man/man1 || ($mkdir $PREFIX; mkdir $PREFIX/man; mkdir $PREFIX/man/man1)
