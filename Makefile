@@ -6,7 +6,7 @@
 
 FILES= Files.base
 PRODUCT= cowsay
-VER= 3.02
+VER= 3.03
 BASE= ${PRODUCT}-${VER}
 TARZ= ${BASE}.tar.Z
 TARGZ= ${BASE}.tar.gz

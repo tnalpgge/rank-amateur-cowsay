@@ -1,3 +1,7 @@
+3.03	19 May 1999
+	- Added cows/tux.cow, as suggested by xmanoel@i.am
+	- Compatibility with 5.6.0, due to a change in qw().
+
 3.02	04 November 1999
 	- Fixed boneheaded code placement so that cowsay -l actually works.
 
@@ -23,4 +27,4 @@
 	- SUBJECT is VERB OBJECT
 
 $Id$
-This file is part of cowsay.  (c) 1999 Tony Monroe.
+This file is part of cowsay.  (c) 1999-2000 Tony Monroe.

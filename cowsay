@@ -1,9 +1,9 @@
 #%BANGPERL%
 
 ##
-## Cowsay 3.02
+## Cowsay 3.03
 ##
-## This file is part of cowsay.  (c) 1999 Tony Monroe.
+## This file is part of cowsay.  (c) 1999-2000 Tony Monroe.
 ##
 
 use Text::Tabs qw(expand);
@@ -12,7 +12,7 @@ use File::Basename;
 use Getopt::Std;
 use Cwd;
 
-$version = "3.02";
+$version = "3.03";
 $progname = basename($0);
 $eyes = "oo";
 $tongue = "  ";
@@ -122,7 +122,11 @@ sub construct_balloon {
 	@border = qw[ < > ];
     } else {
 	$thoughts = '\\';
-	@border = qw[ / \\ \\ / | | ];
+	if ($V and $V gt v5.6.0) {		# Thanks, perldelta.
+	    @border = qw[ / \\ \\ / | | ];
+	} else {
+	    @border = qw[ / \ \ / | | ];	
+	}
     }
     push(@balloon_lines, 
 	" " . ("_" x $max2) . " \n" ,
