@@ -27,8 +27,8 @@ backdoor=$1
 pathdirs=`echo $PATH | tr : " "`
 for p in $pathdirs; do
 	set $p/perl $p/perl5*
-	while [ ! -z $1 ]; do
-		if [ -x $1 ]; then
+	while [ ! -z "$1" ]; do
+		if [ -x "$1" ]; then
 			echo Found perl in $1
 			perls="$perls $1"
 		fi

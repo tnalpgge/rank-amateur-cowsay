@@ -6,7 +6,8 @@
 ## This file is part of cowsay.  (c) 1999 Tony Monroe.
 ##
 
-use Text::Wrap qw(wrap fill $columns $tabstop);
+use Text::Tabs qw(expand);
+use Text::Wrap qw(wrap fill $columns);
 use File::Basename;
 use Getopt::Std;
 use Cwd;
@@ -15,10 +16,17 @@ $version = "3.0";
 $progname = basename($0);
 $eyes = "oo";
 $tongue = "  ";
-$wrap = 40;
 $cowpath = $ENV{'COWPATH'} || '%PREFIX%/share/cows';
 @message = ();
 $thoughts = "";
+
+## Yeah, this is rude, I know.  But hopefully it gets around a nasty
+## little version dependency.
+
+$Text::Wrap::initial_tab = 8;
+$Text::Wrap::subsequent_tab = 8;
+$Text::Wrap::tabstop = 8;
+
 %opts = (
     'e'		=>	'oo',
     'f'		=>	'default.cow',
@@ -44,10 +52,16 @@ $eyes = substr($opts{'e'}, 0, 2);
 $tongue = substr($opts{'T'}, 0, 2);
 $the_cow = "";
 
+if (($^O eq "MSWin32") or ($^O eq "Windows_NT")) {	## Many perls, eek!
+    $pathsep = ';';
+} else {
+    $pathsep = ':';
+}
+
 &slurp_input;
-$columns = $opts{'W'};
-$tabstop = 8;
-@message = ($opts{'n'} ? @message : split("\n", fill("", "", @message)));
+$Text::Wrap::columns = $opts{'W'};
+@message = ($opts{'n'} ? expand(@message) : 
+	    split("\n", fill("", "", @message)));
 &construct_balloon;
 &construct_face;
 &get_cow;
@@ -58,7 +72,7 @@ sub list_cowfiles {
     my $basedir;
     my @dirfiles;
     chop($basedir = cwd);
-    for my $d (split(/:/, $cowpath)) {
+    for my $d (split(/$pathsep/, $cowpath)) {
 	print "Cow files in $d:\n";
 	opendir(COWDIR, $d) || die "$0: Cannot open $d\n";
 	for my $file (readdir COWDIR) {
