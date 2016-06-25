@@ -1,5 +1,5 @@
 ===========
-cowsay 3.03
+cowsay 3.04
 ===========
 
 cowsay is a configurable talking cow, written in Perl.  It operates
@@ -33,6 +33,4 @@ To install cowsay, consult the INSTALL file in this directory.
 For the terms and conditions of use, consult the LICENSE file in
 this directory.
 
--- Tony Monroe (tony@nog.net)
-
-$Id$
+-- tony
