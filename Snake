@@ -1,0 +1,8 @@
+##
+## Snake
+##
+$the_cow = <<EOC;
+  $thoughts
+   $thoughts
+~~<"<><><><><><><><><><><><><>0000>
+EOC
